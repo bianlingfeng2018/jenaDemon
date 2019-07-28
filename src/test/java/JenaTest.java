@@ -241,20 +241,20 @@ public class JenaTest {
     public void loadGraphModel() {
         // neo4j driver and session init
 //        Driver driver = GraphDatabase.driver("bolt://192.168.0.147:7687");
-        Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic( "neo4j", "123456" ) );
+        Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "123456"));
         Session session = driver.session();
         try {
             // create the base model
             OntModel base = ModelFactory.createOntologyModel(OWL_MEM);
 //            base.read(Utils.getResourceAsStream("data/pizza_inferred_full.owl.rdf"), "RDF/XML");
-            base.read(Utils.getResourceAsStream("data/acc_full.rdf"), "RDF/XML");
+            base.read(Utils.getResourceAsStream("data/accident.rdf"), "RDF/XML");
 //        Graph graph = base.getGraph();
 //        for (ExtendedIterator<Triple> i = graph.find();i.hasNext();){
 //            System.out.println(i.next());
 //        }
 //        GraphDatabaseFactory dbFactory = new GraphDatabaseFactory();
 //        GraphDatabaseService db= dbFactory.newEmbeddedDatabase(new File("/Users/bianlingfeng/IdeaProjects/jenaDemon/Neo4jDataBase"));
-            NeoGraph neoGraph = new NeoGraph(session);
+            NeoGraph neoGraph = new NeoGraph(session, base);
             Model graph = ModelFactory.createModelForGraph(neoGraph);
             Model graphModel = graph.add(base);
         } catch (Exception e) {
@@ -262,6 +262,58 @@ public class JenaTest {
         } finally {
             session.close();
             driver.close();
+        }
+    }
+
+    @Test
+    public void restrictionClassExpressionTest() {
+        OntModel m = ModelFactory.createOntologyModel(OWL_MEM);
+        m.read(Utils.getResourceAsStream("data/accident.rdf"), "RDF/XML");
+        OntClass ontClass = m.getOntClass("http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故");
+//        Iterator<Restriction> i = m.listRestrictions();
+//        while (i.hasNext()) {
+//            Restriction r = i.next();
+//            if (isTheOne(r)) {
+//                // handle r
+//            }
+//        }
+        for (Iterator<OntClass> i = ontClass.listSuperClasses(true); i.hasNext(); ) {
+            OntClass c = i.next();
+
+            if (c.isRestriction()) {
+                Restriction r = c.asRestriction();
+
+                if (r.isAllValuesFromRestriction()) {
+                    AllValuesFromRestriction av = r.asAllValuesFromRestriction();
+                    System.out.println("AllValuesFrom class " +
+                            av.getAllValuesFrom().getURI() +
+                            " on property " + av.getOnProperty().getURI());
+                } else if (r.isSomeValuesFromRestriction()) {
+                    SomeValuesFromRestriction sv = r.asSomeValuesFromRestriction();
+                    System.out.println("SomeValuesFrom class " +
+                            sv.getSomeValuesFrom().getURI() +
+                            " on property " + sv.getOnProperty().getURI());
+                } else {
+                    System.out.println(r);
+                }
+            }
+        }
+    }
+
+    private boolean isTheOne(Restriction r) {
+        return "事故".equals(r.getSubClass().getLocalName());
+    }
+
+    @Test
+    public void DeclaredPropertiesTest() {
+        OntModel m = ModelFactory.createOntologyModel(OWL_MEM);
+        m.read(Utils.getResourceAsStream("data/accident.rdf"), "RDF/XML");
+        OntClass ontClass = m.getOntClass("http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故");
+        ExtendedIterator<OntProperty> properties = ontClass.listDeclaredProperties();
+        while (properties.hasNext()) {
+            OntProperty p = properties.next();
+            System.out.println(p.getDomain());
+            System.out.println(p.getRange());
         }
     }
 }

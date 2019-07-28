@@ -1,23 +1,23 @@
-import org.junit.Test;
+//import org.junit.Test;
 //import org.neo4j.graphdb.DynamicRelationshipType;
 //import org.neo4j.graphdb.GraphDatabaseService;
 //import org.neo4j.graphdb.Node;
 //import org.neo4j.graphdb.Transaction;
 //import org.neo4j.graphdb.factory.GraphDatabaseFactory;
 //import org.neo4j.graphdb.index.UniqueFactory;
-import org.semanticweb.HermiT.Reasoner;
-import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.*;
-import org.semanticweb.owlapi.reasoner.NodeSet;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.semanticweb.HermiT.Reasoner;
+//import org.semanticweb.owlapi.apibinding.OWLManager;
+//import org.semanticweb.owlapi.model.*;
+//import org.semanticweb.owlapi.reasoner.NodeSet;
+//import org.semanticweb.owlapi.reasoner.OWLReasoner;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
+//import java.io.File;
+//import java.util.Map;
 
-import java.io.File;
-import java.util.Map;
 
-
-public class OWLAPITest {
+//public class OWLAPITest {
 //
 //    @Test
 //    public void OWL2Neo4jTest() throws Exception {
@@ -139,7 +139,7 @@ public class OWLAPITest {
 //
 //        return factory.getOrCreate("n", nodeName);
 //    }
-}
+//}
 //    START e=node:name(name="experiment123"), ag=node:name(name="Agent")
 //    MATCH e-[r:hadActivity]->ac-->a-[:isA*]->ag
 //    RETURN distinct e.name as experiment, type(r) as relationship, a.name as agent
