@@ -22,6 +22,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故共同主题 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故共同主题">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故描述"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故关键安全问题 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故关键安全问题">
@@ -109,6 +117,14 @@
     <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故概述 -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故概述">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故描述"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故相关事件 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故相关事件">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#有事故描述"/>
     </owl:ObjectProperty>
     
@@ -240,6 +256,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故共同主题 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故共同主题">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故描述"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故关键安全问题 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故关键安全问题">
@@ -328,10 +352,18 @@
     
 
 
+    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故文化组织因素 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故文化组织因素">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故描述"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故概述 -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故概述">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故描述"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故文化组织因素"/>
     </owl:Class>
     
 
@@ -340,6 +372,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故生命周期分类">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故分类"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故相关事件 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故相关事件">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故描述"/>
     </owl:Class>
     
 
@@ -602,14 +642,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#鸟类危害">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故威胁分类"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故文化/组织因素 -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故文化/组织因素">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/bianlingfeng/ontologies/2019/4/accident#事故描述"/>
     </owl:Class>
     
 
